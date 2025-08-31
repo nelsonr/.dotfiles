@@ -1,0 +1,166 @@
+/**
+ * Import the Nerdfonts icon font.
+ * Ref https://www.nerdfonts.com/cheat-sheet for a cheatsheet of available Nerdfonts icons.
+ */
+@import "https://www.nerdfonts.com/assets/css/webfont.css";
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    color-scheme: dark light;
+
+    --color-icon: rgb(255 178 84 / 95%);
+    --color-text: rgb(255 255 255 / 90%);
+    --color-border: rgb(255 178 84 / 40%);
+    --color-background: rgb(0 0 0 / 75%);
+    --color-workspace-bg: rgb(255 178 84 / 10%);
+    --color-workspace-displayed-bg: rgb(255 178 84 / 100%);
+    --color-workspace-hover-bg: rgb(255 178 84 / 50%);
+    --color-workspace-active-bg: rgb(255 178 84 / 70%);
+    --color-button-bg: rgb(255 255 255 / 15%);
+    --color-high-usage: #900029;
+}
+
+i {
+    color: var(--color-text);
+    margin-right: 7px;
+}
+
+body {
+    color: var(--color-text);
+    font-family: ui-monospace, monospace;
+    font-size: 12px;
+    overflow: hidden;
+    padding: 2px;
+    margin: 4px 4px;
+    margin-bottom: 0px;
+    border-radius: 8px;
+}
+
+div,
+span,
+p {
+    cursor: default;
+    user-select: none;
+}
+
+html,
+body,
+#root {
+    height: 40px;
+}
+
+#root {
+    background: var(--color-background);
+    border-radius: 8px;
+    /* border: 1px solid var(--color-border); */
+    height: 100%;
+}
+
+.app {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    padding: 0 8px;
+    padding-right: 12px;
+    height: 100%;
+}
+
+.left,
+.center,
+.right {
+    display: flex;
+    align-items: center;
+}
+
+.center {
+    justify-self: center;
+}
+
+.right {
+    justify-self: end;
+}
+
+.logo,
+.binding-mode,
+.tiling-direction,
+.paused-button,
+.network,
+.memory,
+.cpu {
+    margin-right: 16px;
+}
+
+.logo {
+    display: none;
+}
+
+.workspaces {
+    display: flex;
+    align-items: center;
+}
+
+.workspace {
+    background: var(--color-workspace-bg);
+    margin-right: 4px;
+    padding: 4px 8px;
+    color: var(--color-text);
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+
+    &.focused,
+    &.displayed {
+        background: var(--color-workspace-displayed-bg);
+        color: #000;
+    }
+
+    &:hover:not(.focused) {
+        background: var(--color-workspace-hover-bg);
+    }
+
+    &:hover:active:not(.focused) {
+        background: var(--color-workspace-active-bg);
+    }
+}
+
+.binding-mode,
+.tiling-direction,
+.paused-button {
+    background: var(--color-button-bg);
+    color: var(--color-text);
+    border-radius: 2px;
+    line-height: 1;
+    padding: 4px 8px;
+    border: 0;
+    cursor: pointer;
+}
+
+.binding-mode {
+    margin-right: 4px;
+}
+
+.cpu .high-usage {
+    color: var(--color-high-usage);
+}
+
+.battery {
+    position: relative;
+}
+
+.battery .charging-icon {
+    position: absolute;
+    font-size: 7px;
+    left: -8px;
+    top: 3px;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        color-scheme: light dark;
+        --color-text: linear-gradient(rgb(0 0 0 / 90%), rgb(5 2 20 / 85%));
+        --color-background: rgb(255 255 255 / 90%);
+    }
+}
